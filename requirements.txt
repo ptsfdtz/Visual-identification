@@ -1,5 +1,4 @@
-numpy 
-pillow 
-opencv-python
-tqdm
-opencv-contrib-python
+numpy==1.23.5
+pillow==9.0.0
+opencv-python==4.5.5.64
+tqdm==4.64.0
