@@ -7,7 +7,7 @@ cascadePath = "data/haarcascade_frontalface_default.xml"
 faceCascade = cv2.CascadeClassifier(cascadePath)
 font = cv2.FONT_HERSHEY_SIMPLEX
 
-name_id_mapping = {0: 'THR', 1: 'GJS', 2: 'HJY'}  #用户输入姓名和ID的关系
+name_id_mapping = {0: 'THR', 1: 'SXP', 2: 'HJY'}  #用户输入姓名和ID的关系
 
 cam = cv2.VideoCapture(0)
 minW = 0.1 * cam.get(3)
@@ -30,7 +30,7 @@ while True:
         cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
         idnum, confidence = recognizer.predict(gray[y:y + h, x: x + w])
 
-        if confidence < 50:
+        if confidence < 70:
             name = name_id_mapping.get(idnum, 'Unknown')
             confidence_text = "{0}%".format(round(100 - confidence))
 
