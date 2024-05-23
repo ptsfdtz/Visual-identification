@@ -45,9 +45,9 @@ current_max_id = -1
 
 if os.path.isfile(trainer_file):
     # 获取当前最大ID
-    labels = recognizer.getLabelsByString()
-    if labels:
-        current_max_id = max(labels.keys())
+    model_info = recognizer.getLabels()
+    if len(model_info) > 0:
+        current_max_id = max(model_info)
 
 # 获取未训练的文件夹
 for folder_name in os.listdir(path):
@@ -69,7 +69,10 @@ for folder_name in folders_to_train:
 
 # 训练所有新数据
 if all_faces:
-    recognizer.update(all_faces, np.array(all_ids))
+    if os.path.isfile(trainer_file):
+        recognizer.update(all_faces, np.array(all_ids))
+    else:
+        recognizer.train(all_faces, np.array(all_ids))
 
     if not os.path.exists('face_trainer'):
         os.makedirs('face_trainer')

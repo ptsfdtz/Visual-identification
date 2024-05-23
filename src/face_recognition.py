@@ -7,7 +7,7 @@ cascadePath = "data/haarcascade_frontalface_default.xml"
 faceCascade = cv2.CascadeClassifier(cascadePath)
 font = cv2.FONT_HERSHEY_SIMPLEX
 
-name_id_mapping = {0: 'THR', 1: 'SXP', 2: 'HJY'}  #用户输入姓名和ID的关系
+name_id_mapping = {0: 'THR', 1: 'SXP', 2: 'HJY',3: 'MBN'}  #用户输入姓名和ID的关系
 
 cam = cv2.VideoCapture(0)
 minW = 0.1 * cam.get(3)
